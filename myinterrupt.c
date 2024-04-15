@@ -64,8 +64,8 @@ void my_schedule(void)
         	"ret\n\t" 	            /* restore  rip of next */
         	"1:\t"                  /* next process start here */
         	"popq %%rbp\n\t"
-        	: "=m" (prev->thread.sp),"=m" (prev->thread.ip)
-        	: "m" (next->thread.sp),"m" (next->thread.ip)
+        	: "=m" (prev->thread.sp),"=m" (prev->thread.ip)  /*=m表示写到内存变量， 输出*/
+        	: "m" (next->thread.sp),"m" (next->thread.ip)  /*m表示内存变量，输入；r 修饰符放在通用寄存器*/
     	); 
     }  
     return;	
